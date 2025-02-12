@@ -25,7 +25,7 @@ export default function QRCodeGenerator() {
         await QRCode.toCanvas(canvas, url, {
           width: 300,
           margin: 2,
-          color: { dark: color, light: "#ffffff" },
+          color: { dark: color, light: "#0000000" },
         })
         setQRCode(canvas.toDataURL("image/png"))
       }
@@ -57,7 +57,7 @@ export default function QRCodeGenerator() {
         fileName = "qrcode.jpg"
         break
       case "svg":
-        QRCode.toString(url, { type: "svg", color: { dark: color, light: "#ffffff" } }, (err, string) => {
+        QRCode.toString(url, { type: "svg", color: { dark: color, light: "#0000000" } }, (err, string) => {
           if (err) throw err
           const svgBlob = new Blob([string], { type: "image/svg+xml;charset=utf-8" })
           downloadUrl = URL.createObjectURL(svgBlob)
